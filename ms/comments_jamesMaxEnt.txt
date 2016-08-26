@@ -13,3 +13,13 @@ And then continue on with the next paragraph (on page 2) that begins "In this pa
 
 # Comment 2:
 
+A suggestion on clarifying the highlighted passage on page 3 that begins "In fact, we can make many..."
+
+My suggestion:
+In fact many predictions for the species abundance distribution have been derived using maximum entropy \citep{shipley2006, pueyo2007, harte2011} with the diversity of predictions arising from the numerous choices of constraints on this distribution. The task at hand is to identify the constraints most relevant for building an alternative hypothesis to, in this case, neutral theory.  Because mean abundance is the sufficient statistic for neutral theory we identify this measure to be used for constrained entropy maximization.
+
+
+# Comment 3:
+
+
+
