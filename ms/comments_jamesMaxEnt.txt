@@ -1,0 +1,15 @@
+# Comment 1:
+
+I propose flipping this introduction of METE and MaxEnt somewhat (the part highlighted on page one of the document).  I have two inter-related motivations: 1. not upset John about his baby (METE); and 2. preserve METE as a predictive theory, albeit with a need to better derive it from something like first principles:
+
+I propose changing the highlighted section to read:
+
+METE is very specific in terms of its data requirements: the theory prescribes a set of constraints that we should measure, based on intuitively important quantities such as the total number of individuals in a system, the total richness (of species or higher taxa), and the total energy flux. While the specific values of these constraints will differ across ecological communities that are more or less diverse, productive, or populous, the theory claims that the appropriate constraints are identical for all systems. Predictions are then made by applying the maximum entropy principle to these constraints. This prescription has been successful, and suggests that large amount of variance in macroecological patterns indeed stems from statistical constraints on large aggregations of biological units (species, populations, metabolic systems).
+
+However, the question arrises, given that any data could be used to constrain the maximum entropy algorithm, why focus exclusively on those proposed by METE?  Indeed we could constrain the maximum entropy algorithm with whatever data we know about a given ecological community, whether that is as specific as the number and spatial location of individuals of your favorite species, or as obscure as the skewness of the distribution of rare and abundant species. Whatever we think we know, the maximum entropy principle will then fill in the gaps adding the least possible additional information.
+
+And then continue on with the next paragraph (on page 2) that begins "In this paper we introduce a principle..."
+
+
+# Comment 2:
+
