@@ -21,5 +21,9 @@ In fact many predictions for the species abundance distribution have been derive
 
 # Comment 3:
 
+To clarify the highlighted section on page 3 (beginning "This second prediction..."), I'd suggest:
 
+This second prediction was constrained using precisely the same data needed to specify the speciation rate of the neutral model. However, due to the formalisms of maximum entropy, this second prediction did not contain information about (i.e. was unconstrained by) the dynamic mechanisms behind birth, death and ultimately speciation.
+
+I think it's less important to emphasize the neutrality or not of the MaxEnt model and more important to emphasize its lack of mechanism as compared to neutral theory.
 
