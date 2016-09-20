@@ -39,25 +39,29 @@ ssmeLogLik(bciSpLevel$count, bciSpLevel$dbh)
 
 
 ## likelihood function for SSNTI
-ssntiLogLik <- function(spp, n, m) {
-    S <- length(unique(spp))
-    nbar <- sum(n) / S
+ssntiLogLik <- function(n, M) {
+    S <- length(n)
+    nbar <- mean(n)
     nu <- uniroot(nuSSNT, interval = c(.Machine$double.eps, 10), 
                   nbar = nbar, tol = .Machine$double.eps)$root
+    m0 <- M/nbar
     
-    dat <- split(data.frame(n = n, m = m), spp)
-    
-    lp <- sapply(dat, function(d) {
-        M <- sum(d$m)
-        m0 <- M / nbar
-        n <- sum(d$n)
-        
-        n*log(1 - nu) - log(n) - n*log(m0) - M/m0
-    })
-    
-    return(S * log(1/log(1/nu)) + sum(lp))
+    S * (log(1/log(1/nu)) - nbar) + sum(n*log(1-nu) - log(n) - n*log(m0))
 }
 
-ssntiLogLik(bci$spp, bci$count, bci$dbh)
+ssntiLogLik(bciSpLevel$count, bciSpLevel$dbh)
 
 
+## likelihood function for SSMEI
+ssmeiLogLik <- function(n, M) {
+    S <- length(n)
+    nbar <- mean(n)
+    Mbar <- mean(M)
+    
+    la1 <- log(nbar / (nbar - 1))
+    la2 <- 1/Mbar
+    
+    S * log(exp(la1) - 1) + sum(n*log(la2) - la1*n - la2*M)
+}
+
+ssmeiLogLik(bciSpLevel$count, bciSpLevel$dbh)
