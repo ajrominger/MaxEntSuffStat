@@ -48,10 +48,11 @@ ssntiLogLik <- function(spp, n, m) {
     dat <- split(data.frame(n = n, m = m), spp)
     
     lp <- sapply(dat, function(d) {
-        m0 <- sum(d$m) / nbar
+        M <- sum(d$m)
+        m0 <- M / nbar
         n <- sum(d$n)
         
-        n*log(1 - nu) - log(n) - n*log(m0) - sum(d$m/m0)
+        n*log(1 - nu) - log(n) - n*log(m0) - M/m0
     })
     
     return(S * log(1/log(1/nu)) + sum(lp))
