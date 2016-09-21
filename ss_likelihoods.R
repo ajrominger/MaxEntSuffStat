@@ -42,11 +42,12 @@ ssmeLogLik(bciSpLevel$count, bciSpLevel$dbh)
 ssntiLogLik <- function(n, M) {
     S <- length(n)
     nbar <- mean(n)
+    Mbar <- mean(M)
     nu <- uniroot(nuSSNT, interval = c(.Machine$double.eps, 10), 
                   nbar = nbar, tol = .Machine$double.eps)$root
-    m0 <- M/nbar
+    m0 <- Mbar/nbar
     
-    S * (log(1/log(1/nu)) - nbar) + sum(n*log(1-nu) - log(n) - n*log(m0))
+    S * (log(1/log(1/nu))) + sum(n*log(1-nu) - log(n) - n*log(m0) - M/m0)
 }
 
 ssntiLogLik(bciSpLevel$count, bciSpLevel$dbh)
