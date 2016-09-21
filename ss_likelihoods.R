@@ -1,6 +1,6 @@
-bci <- read.csv('~/Research/datasets/stri/all/BCIS/BCIS.csv', as.is = TRUE)
-bci <- bci[bci$year == max(bci$year), ]
-bciSpLevel <- aggregate(bci[, c('count', 'dbh')], list(spp = bci$spp), sum)
+## ===================================================
+## script for all likelihood functions for SS theories
+## ===================================================
 
 ## solution for nu under SSNT
 nuSSNT <- function(nu, nbar) {
@@ -33,11 +33,6 @@ ssmeLogLik <- function(n, M) {
 }
 
 
-ssntLogLik(bciSpLevel$count, bciSpLevel$dbh)
-ssmeLogLik(bciSpLevel$count, bciSpLevel$dbh)
-
-
-
 ## likelihood function for SSNTI
 ssntiLogLik <- function(n, M) {
     S <- length(n)
@@ -49,8 +44,6 @@ ssntiLogLik <- function(n, M) {
     
     S * (log(1/log(1/nu))) + sum(n*log(1-nu) - log(n) - n*log(m0) - M/m0)
 }
-
-ssntiLogLik(bciSpLevel$count, bciSpLevel$dbh)
 
 
 ## likelihood function for SSMEI
@@ -64,5 +57,3 @@ ssmeiLogLik <- function(n, M) {
     
     S * log(exp(la1) - 1) + sum(n*log(la2) - la1*n - la2*M)
 }
-
-ssmeiLogLik(bciSpLevel$count, bciSpLevel$dbh)
