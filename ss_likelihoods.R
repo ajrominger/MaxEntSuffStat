@@ -53,7 +53,7 @@ ssmeiLogLik <- function(n, M) {
     Mbar <- mean(M)
     
     la1 <- log(nbar / (nbar - 1))
-    la2 <- 1/Mbar
+    la2 <- nbar/Mbar
     
     S * log(exp(la1) - 1) + sum(n*log(la2) - la1*n - la2*M)
 }
