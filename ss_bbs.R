@@ -56,3 +56,5 @@ plot(bbsSSLogLik$tot, bbsSSLogLik$ind,
 dev.off()
 
 
+## write out for james
+write.csv(bbsSSLogLik[, 1:5], file = 'bbs_sizeStructured_ll.csv', row.names = FALSE)
