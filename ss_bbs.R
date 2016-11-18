@@ -58,3 +58,22 @@ dev.off()
 
 ## write out for james
 write.csv(bbsSSLogLik[, 1:5], file = 'bbs_sizeStructured_ll.csv', row.names = FALSE)
+
+
+## example figure of neutral ll - maxent ll
+pdf('fig_eq9_ssInd.pdf', width = 4, height = 4)
+par(mar = c(3, 3, 0, 0) + 0.5, mgp = c(2, 0.75, 0))
+hist(bbsSSLogLik$ssnti - bbsSSLogLik$ssmei, 
+     xlab = expression(ll[SSNTI] - ll[SSMEI]), main = '')
+rect(xleft = -2, xright = 2, ybottom = par('usr')[3], ytop = par('usr')[4], 
+     col = gray(0.5, 0.5), border = NA)
+dev.off()
+
+pdf('fig_eq9_ssTot.pdf', width = 4, height = 4)
+par(mar = c(3, 3, 0, 0) + 0.5, mgp = c(2, 0.75, 0))
+hist(bbsSSLogLik$ssnt - bbsSSLogLik$ssme, 
+     xlab = expression(ll[SSNT] - ll[SSME]), main = '', 
+     xlim = range(bbsSSLogLik$ssnt - bbsSSLogLik$ssme, -2, 2))
+rect(xleft = -2, xright = 2, ybottom = par('usr')[3], ytop = par('usr')[4], 
+     col = gray(0.5, 0.5), border = NA)
+dev.off()
