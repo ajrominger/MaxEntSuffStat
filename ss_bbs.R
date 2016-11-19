@@ -16,6 +16,9 @@ bbsBody <- read.csv('~/Research/datasets/bbs/db/speciesTableBody.csv', as.is = T
 bbs$avgMass <- bbsBody$mass[match(bbs$spp, bbsBody$sppKey)]
 bbs$totMass <- bbs$avgMass * bbs$abund
 
+## write both to local directory so they're availible on github
+write.csv(bbs, 'bbs2009.csv', row.names = FALSE)
+write.csv(bbsBody, 'speciesTableBody.csv.csv', row.names = FALSE)
 
 ## run on all routes
 bbsSSLogLik <- mclapply(split(bbs, bbs$route), mc.cores = 6, FUN = function(d) {
